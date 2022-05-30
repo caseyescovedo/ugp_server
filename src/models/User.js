@@ -11,6 +11,22 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  status: {
+    type: String,
+    required: true,
+  },
+  location: {
+    type: String,
+    required: true,
+  },
+  coach: {
+    type: String,
+    required: true,
+  },
+  trainer: {
+    type: String,
+    required: true,
+  },
 });
 
 userSchema.pre('save', function (next) {

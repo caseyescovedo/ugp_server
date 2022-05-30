@@ -7,10 +7,22 @@ const router = express.Router();
 
 router.post('/signup', async (req, res) => {
   const { email, password } = req.body;
+  const status = 'active';
+  const coach = 'Unassigned';
+  const trainer = 'Unassigned';
+  const location = 'Unassigned';
+
   console.log('inside /signup', email, ' ', password);
 
   try {
-    const user = new User({ email, password });
+    const user = new User({
+      email,
+      password,
+      status,
+      coach,
+      trainer,
+      location,
+    });
     await user.save();
 
     const token = jwt.sign({ userId: user._id }, 'MY_SECRET_KEY');
